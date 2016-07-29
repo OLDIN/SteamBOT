@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SteamBOT - теперь жизнь станет легче</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/libs/font-awesome.min.css">
+    <style>
+        @font-face{font-family:gsc;src:url(//gscst-84a.kxcdn.com/main/widgets/201606/e76fe1770c18981b2cbb8add0ad13f52/common/fonts/gsc.eot?) format('embedded-opentype');font-weight:400;font-style:normal}@font-face{font-family:gsc;src:url(data:application/octet-stream;base64,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) format('truetype');font-weight:400;font-style:normal}@-webkit-keyframes gscw-bounceInLeft{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(-3000px,0);transform:translate(-3000px,0)}40%{opacity:1;-webkit-transform:translate(35px,0);transform:translate(35px,0)}65%{-webkit-transform:translate(-15px,0);transform:translate(-15px,0)}90%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInLeft{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(-3000px,0);transform:translate(-3000px,0)}40%{opacity:1;-webkit-transform:translate(35px,0);transform:translate(35px,0)}65%{-webkit-transform:translate(-15px,0);transform:translate(-15px,0)}90%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInRight{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(3000px,0);transform:translate(3000px,0)}40%{opacity:1;-webkit-transform:translate(-35px,0);transform:translate(-35px,0)}65%{-webkit-transform:translate(15px,0);transform:translate(15px,0)}90%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInRight{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(3000px,0);transform:translate(3000px,0)}40%{opacity:1;-webkit-transform:translate(-35px,0);transform:translate(-35px,0)}65%{-webkit-transform:translate(15px,0);transform:translate(15px,0)}90%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInUp{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,700px);transform:translate(0,700px)}40%{opacity:1;-webkit-transform:translate(0,-35px);transform:translate(0,-35px)}65%{-webkit-transform:translate(0,15px);transform:translate(0,15px)}90%{-webkit-transform:translate(0,-5px);transform:translate(0,-5px)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInUp{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,700px);transform:translate(0,700px)}40%{opacity:1;-webkit-transform:translate(0,-35px);transform:translate(0,-35px)}65%{-webkit-transform:translate(0,15px);transform:translate(0,15px)}90%{-webkit-transform:translate(0,-5px);transform:translate(0,-5px)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceInDown{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,-700px);transform:translate(0,-700px)}40%{opacity:1;-webkit-transform:translate(0,35px);transform:translate(0,35px)}65%{-webkit-transform:translate(0,-15px);transform:translate(0,-15px)}90%{-webkit-transform:translate(0,5px);transform:translate(0,5px)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceInDown{0%,100%,40%,65%,90%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate(0,-700px);transform:translate(0,-700px)}40%{opacity:1;-webkit-transform:translate(0,35px);transform:translate(0,35px)}65%{-webkit-transform:translate(0,-15px);transform:translate(0,-15px)}90%{-webkit-transform:translate(0,5px);transform:translate(0,5px)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-bounceOutLeft{20%{opacity:1;-webkit-transform:translate(20px,0);transform:translate(20px,0)}100%{opacity:0;-webkit-transform:translate(-2000px,0);transform:translate(-2000px,0)}}@keyframes gscw-bounceOutLeft{20%{opacity:1;-webkit-transform:translate(20px,0);transform:translate(20px,0)}100%{opacity:0;-webkit-transform:translate(-2000px,0);transform:translate(-2000px,0)}}@-webkit-keyframes gscw-bounceOutRight{20%{opacity:1;-webkit-transform:translate(-20px,0);transform:translate(-20px,0)}100%{opacity:0;-webkit-transform:translate(2000px,0);transform:translate(2000px,0)}}@keyframes gscw-bounceOutRight{20%{opacity:1;-webkit-transform:translate(-20px,0);transform:translate(-20px,0)}100%{opacity:0;-webkit-transform:translate(2000px,0);transform:translate(2000px,0)}}@-webkit-keyframes gscw-slideOutLeft{100%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}}@keyframes gscw-slideOutLeft{100%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}}@-webkit-keyframes gscw-slideOutRight{100%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}}@keyframes gscw-slideOutRight{100%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}}@-webkit-keyframes gscw-slideInLeft{0%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-slideInLeft{0%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-slideInRight{0%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-slideInRight{0%{-webkit-transform:translate(100%,0);transform:translate(100%,0)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes gscw-fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes gscw-fadeInLeft{0%{opacity:0;-webkit-transform:translate(-60%,0);transform:translate(-60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInLeft{0%{opacity:0;-webkit-transform:translate(-60%,0);transform:translate(-60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInRight{0%{opacity:0;-webkit-transform:translate(60%,0);transform:translate(60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInRight{0%{opacity:0;-webkit-transform:translate(60%,0);transform:translate(60%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInUp{0%{opacity:0;-webkit-transform:translate(0,60%);transform:translate(0,60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInUp{0%{opacity:0;-webkit-transform:translate(0,60%);transform:translate(0,60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeInDown{0%{opacity:0;-webkit-transform:translate(0,-60%);transform:translate(0,-60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-fadeInDown{0%{opacity:0;-webkit-transform:translate(0,-60%);transform:translate(0,-60%)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes gscw-fadeOut{0%{opacity:1}100%{opacity:0}}@-webkit-keyframes gscw-zoomIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}50%{opacity:1}100%{-webkit-transform:none;transform:none}}@keyframes gscw-zoomIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}50%{opacity:1}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-zoomOut{0%{opacity:1}50%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}100%{opacity:0}}@keyframes gscw-zoomOut{0%{opacity:1}50%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}100%{opacity:0}}@-webkit-keyframes gscw-swing{0%{opacity:0}20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{opacity:1;-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}100%{-webkit-transform:rotate3d(0,0,1,0deg);transform:rotate3d(0,0,1,0deg)}}@keyframes gscw-swing{0%{opacity:0}20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{opacity:1;-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}100%{-webkit-transform:rotate3d(0,0,1,0deg);transform:rotate3d(0,0,1,0deg)}}@-webkit-keyframes gscw-bounceIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}30%{-webkit-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}55%{opacity:1;-webkit-transform:scale(.8,.8);transform:scale(.8,.8)}72%{-webkit-transform:scale(1.13,1.13);transform:scale(1.13,1.13)}87%{-webkit-transform:scale(.97,.97);transform:scale(.97,.97)}100%{-webkit-transform:none;transform:none}}@keyframes gscw-bounceIn{0%{opacity:0;-webkit-transform:scale(.3,.3);transform:scale(.3,.3)}30%{-webkit-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}55%{opacity:1;-webkit-transform:scale(.8,.8);transform:scale(.8,.8)}72%{-webkit-transform:scale(1.13,1.13);transform:scale(1.13,1.13)}87%{-webkit-transform:scale(.97,.97);transform:scale(.97,.97)}100%{-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-flipTy{0%{-webkit-transition-timing-function:ease-in;transition-timing-function:ease-in;-webkit-transform:rotateY(180deg) scale(.4,.4);transform:rotateY(180deg) scale(.4,.4)}100%{-webkit-transform:rotateY(0) scale(1,1);transform:rotateY(0) scale(1,1)}}@keyframes gscw-flipTy{0%{-webkit-transition-timing-function:ease-in;transition-timing-function:ease-in;-webkit-transform:rotateY(180deg) scale(.4,.4);transform:rotateY(180deg) scale(.4,.4)}100%{-webkit-transform:rotateY(0) scale(1,1);transform:rotateY(0) scale(1,1)}}@-webkit-keyframes gscw-flip{0%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}100%{-webkit-transform:rotateY(0);transform:rotateY(0)}}@keyframes gscw-flip{0%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}100%{-webkit-transform:rotateY(0);transform:rotateY(0)}}@-webkit-keyframes gscw-revealTouch{0%{margin-top:-200px}100%{margin-top:0}}@keyframes gscw-revealTouch{0%{margin-top:-200px}100%{margin-top:0}}@-webkit-keyframes gscw-typing{0%,100%,80%{opacity:0;-webkit-transform:scale(.8);transform:scale(.8)}40%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes gscw-typing{0%,100%,80%{opacity:0;-webkit-transform:scale(.8);transform:scale(.8)}40%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes gscw-notify{0%{-webkit-transform:scale(.1,.1);transform:scale(.1,.1);opacity:.3}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes gscw-notify{0%{-webkit-transform:scale(.1,.1);transform:scale(.1,.1);opacity:.3}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes gscw-highlight{100%{-webkit-transform:none;transform:none}0%,99%{-webkit-transform:translate(0,0);transform:translate(0,0)}20%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}60%{-webkit-transform:translate(-2.5px,0);transform:translate(-2.5px,0)}40%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}80%{-webkit-transform:translate(2.5px,0);transform:translate(2.5px,0)}}@keyframes gscw-highlight{100%{-webkit-transform:none;transform:none}0%,99%{-webkit-transform:translate(0,0);transform:translate(0,0)}20%{-webkit-transform:translate(-5px,0);transform:translate(-5px,0)}60%{-webkit-transform:translate(-2.5px,0);transform:translate(-2.5px,0)}40%{-webkit-transform:translate(5px,0);transform:translate(5px,0)}80%{-webkit-transform:translate(2.5px,0);transform:translate(2.5px,0)}}body.g-7zqrr4{overflow:hidden!important}body.gr8bih2{overflow:hidden!important}.g-9aphdm{cursor:pointer}body.g3noacb:before{-webkit-transition:height 500ms cubic-bezier(.455,.03,.515,.955);transition:height 500ms cubic-bezier(.455,.03,.515,.955);content:' ';display:block;visibility:hidden;height:0!important;padding:0;margin:0}.g-jbbvno.g3noacb:before{-webkit-transition:none!important;transition:none!important}body.g3noacb.g-fzu86s:before{height:42px!important}body.g3noacb.gxy9hod:before{-webkit-transition:none!important;transition:none!important}w-div{display:block;vertical-align:inherit}.g-gcfds3,.g-qoiv7g{-webkit-animation-name:gscw-highlight!important;animation-name:gscw-highlight!important;-webkit-animation-duration:600ms!important;animation-duration:600ms!important;-webkit-font-smoothing:subpixel-antialiased;-webkit-transform-origin:left;-ms-transform-origin:left;transform-origin:left}.gtt9wyd{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.gxy9hod *{-webkit-transition:none!important;transition:none!important}
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <!--[if IE]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<i class="fa fa-bars fa-navbar fa-2x" id="humburger"></i>
+
+    <header class="container-fluid">
+        <div class="starter-template">
+            <h1>SteamBOT</h1>
+            <p class="lead">Теперь жизнь станет легче</p>
+            <a href="/" class="footer-logo">
+                <div class="c-container">
+                    <div class="gamepad">
+                        <div class="line-2"></div>
+                        <div class="gp_body">
+                            <div class="circle-1"></div>
+                            <div class="circle-2"></div>
+                            <div class="shape-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="fa fa-angle-down fa-3x"></div>
+    </header>
+    
+    <section class="container-fluid block-tarif" id="block-tarif">
+      <div class="container">
+          <h2>Новые возможности</h2>
+          <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="type-tarif">
+                      <div class="top top-first">
+                          <h3>Lite</h3>
+                          <div class="price">
+                              <strong>
+                                  200 <span class="currency">&#8381;</span>
+                              </strong>
+                              <em class="small-text">в месяц</em>
+                          </div>
+                      </div>
+                      <div class="characteristics">
+                          <div class="left">
+                              <p>Пополнение</p>
+                              <p>Вывод</p>
+                              <p>Ботов</p>
+                              <p>Инвентарь</p>
+                              <p>Услуга <a href="#" target="_blank">++bot</a></p>
+                          </div>
+                          <div class="right">
+                              <p><i class="fa fa-times fa-danger"></i></p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p>1 шт.</p>
+                              <p>1000 ед.</p>
+                              <p><i class="fa fa-times fa-danger"></i></p>
+                          </div>
+                      </div>
+                      <button class="btn btn-success">Заказать</button>
+                      <div class="info">
+                          <p>Подходит для подключения к проектам типа "открытие кейсов".</p> 
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="type-tarif">
+                      <div class="top top-second">
+                          <h3>STANDART</h3>
+                          <div class="price">
+                              <strong>
+                                  500 <span class="currency">&#8381;</span>
+                              </strong>
+                              <em class="small-text">в месяц</em>
+                          </div>
+                      </div>
+                      <div class="characteristics">
+                          <div class="left">
+                              <p>Пополнение</p>
+                              <p>Вывод</p>
+                              <p>Ботов</p>
+                              <p>Инвентарь</p>
+                              <p>Услуга <a href="#" target="_blank">++bot</a></p>
+                          </div>
+                          <div class="right">
+                              <p><i class="fa fa-times fa-danger"></i></p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p>3 шт.</p>
+                              <p>3000 ед.</p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                          </div>
+                      </div>
+                      <button class="btn btn-success">Заказать</button>
+                      <div class="info">
+                          <p>Подходит для подключения к проектам типа "открытие кейсов".</p> 
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="type-tarif">
+                      <span class="fa-stack fa-the-best fa-danger right">
+                          <i class="fa fa-sun-o fa-stack-2x" aria-hidden="true"></i>
+                          <i class="fa fa-thumbs-up fa-stack-1" aria-hidden="true"></i>
+                      </span>
+                      <div class="top top-third">
+                          <h3>PREMIUM</h3>
+                          <div class="price">
+                              <strong>
+                                  1000 <span class="currency">&#8381;</span>
+                              </strong>
+                              <em class="small-text">в месяц</em>
+                          </div>
+                      </div>
+
+                      <div class="characteristics">
+                          <div class="left">
+                              <p>Пополнение</p>
+                              <p>Вывод</p>
+                              <p>Ботов</p>
+                              <p>Инвентарь</p>
+                              <p>Услуга <a href="#" target="_blank">++bot</a></p>
+                          </div>
+                          <div class="right">
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p>1 шт.</p>
+                              <p>1000 ед.</p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                          </div>
+                      </div>
+                      <button class="btn btn-success">Заказать</button>
+                      <div class="info">
+                          <p>Подходит для подключения к проектам типа "открытие кейсов".</p> 
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="type-tarif">
+                      <div class="top top-fourth">
+                          <h3>GOLD</h3>
+                          <div class="price">
+                              <strong>
+                                  1500 <span class="currency">&#8381;</span>
+                              </strong>
+                              <em class="small-text">в месяц</em>
+                          </div>
+                      </div>
+
+                      <div class="characteristics">
+                          <div class="left">
+                              <p>Пополнение</p>
+                              <p>Вывод</p>
+                              <p>Ботов</p>
+                              <p>Инвентарь</p>
+                              <p>Услуга <a href="#" target="_blank">++bot</a></p>
+                          </div>
+                          <div class="right">
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                              <p>3 шт.</p>
+                              <p>3000 ед.</p>
+                              <p><i class="fa fa-check fa-success"></i></p>
+                          </div>
+                      </div>
+                      <button class="btn btn-success">Заказать</button>
+                      <div class="info">
+                          <p>Подходит для подключения к проектам типа "открытие кейсов".</p> 
+                      </div>
+                  </div>
+              </div>
+          </div>          
+      </div>
+    </section>
+    <div class="waves-bottom"></div>
+    
+    <section class="success" id="about">
+       <div class="container">
+            <div class="row">
+               <h2>О нас</h2>
+                <div class="col-md-4">
+                    <figure>
+                        <p><img src="img/24hrs.png" alt="" class="center-block" style="padding-bottom: 5px; margin-top: 25px;"></p>
+                        <figcaption>Бесперебойная <br> работа 24 часа в сутки</figcaption>
+                        <p class="about-info">Uptime выше 99.9% <br> Бот доступен более 364¾ дней в году.</p>
+                    </figure>
+                </div>
+                <div class="col-md-4">
+                    <figure>
+                        <p><img src="img/ssd.png" alt="" class="center-block"></p>
+                        <figcaption>Самые быстрые <br> обмены</figcaption>
+                        <p class="about-info">Отправка трейдов в мгновение ока <br> Мощные сервара и качественные боты</p>
+                    </figure>
+                </div>
+                <div class="col-md-4">
+                    <figure>
+                        <p><img src="img/support.png" alt="" class="center-block"></p>
+                        <figcaption>Оперативная <br> техподдержка</figcaption>
+                        <p class="about-info">Сотрудники службы поддержки круглосуточно, в течение 5-и минут, отвечают на вопросы клиентов.</p>
+                    </figure>
+                </div>
+                
+            </div>
+       </div>
+    </section>
+    
+    <section class="container" id="our-skills">
+        <div class="row">
+            <h2>Наши преимущества</h2>
+            <div class="col-md-4">
+                <p><i class="fa fa-check fa-success fa-2x"></i> Выгодные условия, отсутствие скрытых платежей</p>
+                <p><i class="fa fa-check fa-success fa-2x"></i> Гарантия предоставления заявленных ресурсов</p>
+                <p><i class="fa fa-check fa-success fa-2x"></i> Техническая поддержка через тикет-систему 24/7/365</p>
+            </div>
+            <div class="col-md-4">
+                <p><i class="fa fa-check fa-success fa-2x"></i> Возможность мгновенного увеличения количества ботов</p>
+                <p><i class="fa fa-check fa-success fa-2x"></i> Единый центр управления всеми ботами</p>
+                <p></p>
+            </div>  
+            <div class="col-md-4">
+                <p><i class="fa fa-check fa-success fa-2x"></i> Удобное API с рядом возможностей</p>
+                <p><i class="fa fa-check fa-success fa-2x"></i> Защита сайтов от взлома и незарегистрированных трейдов</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container-fluid info-project success" id="info">
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                   <div class="block">
+                       <div class="count">763</div>
+                       Юзеров
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                   <div class="block">
+                       <div class="count">763</div>
+                       Заказов
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                   <div class="block">
+                       <div class="count">763</div>
+                       Ботов Online
+                   </div>
+               </div>
+           </div>           
+       </div>
+
+    </section>
+    
+    <footer class="container">
+        <div class="row">
+            <div class="col-md-2 col-xs-6 col-sm-4">
+                <h4>Аккаунт</h4>
+                <ul>
+                    <li><a href="#">Создать API</a></li>
+                    <li><a href="#">Мои API</a></li>
+                    <li><a href="#">Пополнить</a></li>
+                    <li><a href="#">Тарифы</a></li>
+                    <li><a href="#">Партнёрка</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-xs-6 col-sm-4">
+                <h4>API</h4>
+                <ul>
+                    <li><a href="#">Быстрый старт</a></li>
+                    <li><a href="#">Отправка трейда</a></li>
+                    <li><a href="#">Инфа о трейде</a></li>
+                    <li><a href="#">Покупка скинов</a></li>
+                    <li><a href="#">Статус ботов</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-xs-6 col-sm-4">
+                <h4>Помощь</h4>
+                <ul>
+                    <li><a href="#">Служба поддержки</a></li>
+                    <li><a href="#">Вопрос / ответ</a></li>
+                    <li><a href="#">У меня есть идея</a></li>
+                </ul>
+            </div>            
+            <div class="col-md-2 col-xs-6 col-sm-4">
+                <h4>Информация</h4>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Возможности</a></li>
+                    <li><a href="#">Соглашение</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4" style="display: table;">
+                <h4>Мы в сети:</h4>
+                <div class="social">
+                    <span class="fa-stack fa-lg social-icon-vk">
+                        <i class="fa fa-vk fa-stack-1x"></i>
+                    </span>
+                    <span class="fa-stack fa-lg social-icon-facebook">
+                        <i class="fa fa-facebook fa-stack-1x"></i>
+                    </span>
+                    <span class="fa-stack fa-lg social-icon-github">
+                        <i class="fa fa-github fa-stack-1x"></i>
+                    </span>
+                    <span class="fa-stack fa-lg social-icon-codepen">
+                        <i class="fa fa-codepen fa-stack-1x"></i>
+                    </span>
+                    <span class="fa-stack fa-lg social-icon-skype">
+                        <i class="fa fa-skype fa-stack-1x"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row second">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <div class="text-left">
+                    &copy; 2016 Все права защищены.
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+               <a href="/" class="footer-logo">
+                    <div class="c-container">
+                        <div class="gamepad">
+                            <div class="line-2"></div>
+                            <div class="gp_body">
+                                <div class="circle-1"></div>
+                                <div class="circle-2"></div>
+                                <div class="shape-4"></div>
+                            </div>
+                        </div>
+                    </div>
+               </a>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <div class="text-right">
+                    Developed by <a href="http://oldin.github.io" target="_blank">OLDIN_</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/libs/jquery.waypoints.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>
