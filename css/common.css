@@ -1,0 +1,510 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: benton-sans,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #F1F4F1;
+    color: black;
+}
+
+.fa-navbar {
+    position: fixed;
+    float: right;
+    color: rgba(255, 255, 255, 0.84);
+    top: 4px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.fa-navbar:hover {
+    text-shadow: black 0px 0px 20px;
+}
+
+header {
+    background-color: #159957;
+    background-image: linear-gradient(120deg, #155799, #159957);
+    text-align: center;
+    color: #fff;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+header h1 {
+    font-size: 6.25rem;
+    font-weight: bold;
+}
+
+header .starter-template {
+    padding: 5rem 6rem;
+}
+
+header .footer-logo .line-2,
+header .footer-logo .gp_body,
+header .footer-logo .circle-1,
+header .footer-logo .circle-2 {
+    background: #67C18E !important;
+}
+
+header .footer-logo:hover .line-2,
+header .footer-logo:hover .gp_body,
+header .footer-logo:hover .circle-1,
+header .footer-logo:hover .circle-2 {
+    background: #9acdf0 !important;
+}
+
+.type-tarif {
+    display: block;
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    height: 308px;
+    background-color: #ebf1f2;
+    border: 1px solid #c9ebf1;
+    margin-top: 25px;
+}
+
+.type-tarif:hover {
+    box-shadow: 0 4px 2px #c9ebf1;
+    top: -4px;
+}
+
+#our-skills p {
+    padding: 10px 0;
+}
+
+.type-tarif .info {
+    text-align: justify;
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 13px;
+}
+
+.type-tarif .btn-order {
+    width: 286px;
+    color: white;
+    padding: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    margin: 0 auto;
+    position: relative;
+}
+
+.block-tarif {
+    background: #ebebeb url(../img/waves.png) repeat;
+}
+
+.block-tarif::after {
+	background: url('../img/waves-bottom.png') repeat-x;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 3rem 0;
+}
+
+h2::after {
+    content: ' ';
+    width: 200px;
+    height: 2px;
+    background: #444444;
+    display: block;
+    left: calc(50% - 100px);
+    position: relative;
+    top: 7px;
+}
+
+#about h2::after {
+    content: ' ';
+    width: 100px;
+    height: 2px;
+    background: white;
+    display: block;
+    left: calc(50% - 50px);
+    position: relative;
+    top: 7px;
+}
+
+.characteristics {
+    font-size: 13px;
+    padding: 10px 0 0 0;     
+}
+
+.characteristics p {
+	margin: 0;
+}
+
+.characteristics div {
+    display: inline-block;
+    text-align: left;
+}
+
+.characteristics::after {
+    clear: both;
+}
+
+.characteristics .left {
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.characteristics .right {
+    padding-left: 10px;
+}
+
+section .type-tarif h3 {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 15px;
+    clear: both;
+    padding: 10px 0;
+    letter-spacing: 3px;
+    position: relative;
+    margin-top: 0px;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 2px #fff dashed;
+}
+
+section .type-tarif .top {
+    font: 15px/21px "benton-sans","Helvetica Neue";
+    color: white;
+}
+
+figure figcaption {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 20px;
+    line-height: 32px;
+}
+
+figure .about-info {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    line-height: 21px;
+    width: 300px;
+    margin: 10px auto;
+}
+
+.type-tarif .top-first,
+.type-tarif .top-fourth{
+    background: #48bedb;
+}
+
+.type-tarif .top-second{
+    background: #349cdc;
+}
+
+.type-tarif .top-third{
+    background: #3faddc;
+}
+
+.info-project {
+    text-align: center;
+    background: url('../img/waves.png');
+}
+
+.info-project .block {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+}
+
+.info-project .block .count {
+    border-bottom: 2px solid white;
+    font-size: 27px;
+}
+
+.success {
+    background: #18bc9c;
+    color: white;
+}
+
+.type-tarif strong {
+	display: block;
+    font-size: 26px;
+}
+
+.type-tarif .btn-success {
+    margin: 15px 0 0 0; 
+    background-repeat: repeat-x;
+    background: #00ca67;
+    border: 0;
+    font-weight: bold;
+}
+
+.btn-success:hover {
+    background: #0cbf67;
+    
+    -webkit-transition: .3s ease-in-out;
+       -moz-transition: .3s ease-in-out;
+        -ms-transition: .3s ease-in-out;
+        -o- transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+}
+
+.currency {
+    font-size: 15px;
+}
+
+.small-text {
+    font-size: 14px;
+    display: block;
+    position: relative;
+    top: -5px;
+}
+
+.waves-bottom {
+    background: url('../img/waves-bottom.png') repeat-x;
+    position: relative;
+    height: 9px;
+    margin-bottom: -9px;
+}
+
+/* FOOTER */
+
+footer {
+    color: white;
+    font-size: 18px;
+    padding-bottom: 3rem;
+}
+
+footer h4{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    padding-top: 8px;
+}
+
+footer ul li a {
+    color: #67C18E;
+    border-bottom: 2px solid #DEE3DF;
+    padding-bottom: 1px;
+}
+
+footer ul li a.active, 
+footer ul li a:active, 
+footer ul li a:focus, 
+footer ul li a:hover {
+    text-decoration: none;
+    color: #323A46;
+    border-bottom-color: #323A46;
+}
+
+footer .row:first-child {
+    margin-bottom: 5rem;
+}
+
+footer .row:first-child .col-md-2,
+footer .row:first-child .col-md-4{
+    padding-top: 5rem;
+}
+
+.footer-logo .line-2,
+.footer-logo .gp_body,
+.footer-logo .circle-1,
+.footer-logo .circle-2 {
+    transition: background .3s linear;
+}
+
+.footer-logo:hover .line-2,
+.footer-logo:hover .gp_body,
+.footer-logo:hover .circle-1,
+.footer-logo:hover .circle-2 {
+    background: #67C18E !important;
+}
+
+
+.social-icon-vk {
+    background: #41678d;
+}
+
+.social-icon-facebook {
+    background: #3b5b99;
+}
+
+.social-icon-github {
+    background: #000000;
+}
+
+.social-icon-codepen {
+    background: #343338;
+}
+
+.social-icon-skype {
+    background: #00AFF0;
+}
+
+
+
+header .fa {
+    -webkit-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
+    -moz-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
+    -o-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
+    animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
+    cursor: pointer;
+}
+header .fa:hover {
+    text-shadow: black 0px 0px 20px;
+}
+
+
+@keyframes trambling-animation {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        -o-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+    }
+}
+
+
+.c-container {
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-bottom-right-radius: 8px;
+    -moz-border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    width: 50px;
+}
+
+.gamepad {
+    position: absolute;
+    display: block;
+}
+
+.c-container .gamepad .line-2 {
+    background: #9acdf0;
+}
+
+.line-2 {
+    width: 14px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    left: calc(50% - 7px);
+    -webkit-transform: rotate(90deg);
+}
+
+.c-container .gamepad .gp_body {
+    width: 50px;
+    height: 30px;
+    background: #9acdf0;
+    border-radius: 10px 10px 5px 5px;
+}
+
+.c-container .gamepad .gp_body .circle-1 {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    position: absolute;
+    background: #9acdf0;
+    top: 8px;
+    left: 5px;
+    float: left;
+}
+
+.c-container .gamepad .gp_body .circle-2 {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 8px;
+    background: #9acdf0;
+    right: 5px;
+    float: right;
+}
+
+.c-container .gamepad .gp_body .shape-4 {
+    width: 12px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 27px;
+    right: calc(50% - 6px);
+}
+
+footer .row.second {
+    padding: 3rem 2rem 0rem 2rem;
+    color: #000000;
+    border-top: 2px solid #ccc;
+}
+
+
+/* ICOPNS */
+
+.fa-gray {
+    color: rgba(74, 74, 74, 0.58) !important;
+}
+
+.fa-success {
+    color: #67C18E;
+}
+
+.fa-danger {
+    color: #c12e2a;
+}
+
+.fa-the-best {
+    right: -10px;
+    top: -10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.fa-the-best .fa-thumbs-up {
+    background: green;
+    border-radius: 50px;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 4px 0px 0px 5px;
+    padding: 3px 0 0 0;
+    position: relative;
+    display: block;
+    color: white;
+}
+
+.fa-the-best .fa-sun-o {
+    color: green;
+    z-index: 1;
+}
