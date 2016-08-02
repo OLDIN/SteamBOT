@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="test/jquery-ui.min.css">
+    <script src="test/external/jquery/jquery.js"></script>
+    <script src="test/jquery-ui.min.js"></script>
+</head>
+<body>
+    <p>
+        <label for="amount1">от</label>
+        <input type="text" id="amount1" style="color:#f6931f; font-weight:bold;">
+        <label for="amount2">до</label>
+        <input type="text" id="amount2" style="color:#f6931f; font-weight:bold;">
+    </p>
+    
+    <div id="slider-range"></div>
+    
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( "#amount1" ).val( ui.values[ 0 ] );
+                    $( "#amount2" ).val( ui.values[ 1 ] );
+                }
+            });
+            $( "#amount1" ).val( $( "#slider-range" ).slider( "values", 0 ) );
+            $( "#amount2" ).val( $( "#slider-range" ).slider( "values", 1 ) );
+        
+
+            $( "#amount1, #amount2" ).on( "keyup", function() {
+                var amount1 = +$('#amount1').val();
+                var amount2 = +$('#amount2').val();
+                
+                if( amount1 < amount2 && amount1 > 0 && amount2 <= 500 )
+                    $( "#slider-range" ).slider( "option", "values", [ amount1, amount2 ] );
+            });
+        });
+    </script>
+    
+    <style>
+        .ui-slider-horizontal .ui-slider-handle {
+            top: -3px;
+            margin-left: -.6em;
+        }
+        
+        .ui-widget.ui-widget-content {
+            width: 500px;
+        }
+        
+        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus {
+            background: url('test/images/u8428_mouseOver.png') !important;
+        }
+        
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+             border: none; 
+            background: url('test/images/u8428.png');
+            font-weight: normal;
+            color: #454545;
+            cursor: pointer;
+            width: 18px;
+            height: 19px;
+        }
+        
+        .ui-slider-horizontal .ui-slider-range {
+            background: rgba(251, 131, 55, 1);
+        }
+        
+        .ui-state-default:focus {
+            outline: none;
+        }
+    </style>
+</body>
+</html>
